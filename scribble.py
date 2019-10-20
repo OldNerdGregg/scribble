@@ -20,6 +20,13 @@ def menu():
         get_version()
     elif choice == "W":
         write_to_scroll()
+    elif choice == "E":
+        confirm = str(input("This will erase a scroll -- ARE YOU SURE YOU WANT TO DO THIS? [Y/N] ")).capitalize()
+        if confirm == "Y":
+            erase_scroll()
+        else:
+            print("Aborting scroll erasure...")
+
 
 def get_version():
     print(25 * '#')
@@ -34,6 +41,11 @@ def write_to_scroll():
     f.close()
     print("Message inscribed!")
 
+def erase_scroll():
+    f = open(current_scroll, "w")
+    f.write('')
+    f.close()
+    print("Scroll has been erased!")
 
 # Start the program
 main()
