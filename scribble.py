@@ -20,12 +20,18 @@ def menu():
         get_version()
     elif choice == "W":
         write_to_scroll()
-    elif choice == "E":
+    elif choice == "E":  
+        # Confirm you actually want to erase the scroll
         confirm = str(input("This will erase a scroll -- ARE YOU SURE YOU WANT TO DO THIS? [Y/N] ")).capitalize()
         if confirm == "Y":
             erase_scroll()
         else:
             print("Aborting scroll erasure...")
+    elif choice == "C":
+        change_scroll()
+    elif choice == "H":
+        get_help()
+
 
 
 def get_version():
@@ -47,6 +53,26 @@ def erase_scroll():
     f.close()
     print("Scroll has been erased!")
 
+def change_scroll():
+    global current_scroll
+    current_scroll = input("Enter file name: ")
+
+
+def get_help():
+    print("Available Commands:")
+    commands = {
+                "Q":"Quit the program.",
+                "V":"Prints the program's version number.",
+                "W":"Writes to the currently selected scroll.",
+                "E":"Erases the current scroll. Must confirm 'Y' to proceed.",
+                "C":"Changes the current scroll.",
+                "H":"Prints this help menu."
+               }
+    for letter, description in commands.items():
+        print("'" + letter + "'" + " = " + description)
+
+
 # Start the program
+print("For commands type 'H'")
 main()
 
