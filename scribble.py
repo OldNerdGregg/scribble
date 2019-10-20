@@ -47,7 +47,7 @@ def get_version():
 def write_to_scroll():
     message = input("Type inscription here: ")
     f = open(current_scroll, "a")
-    f.write(message)
+    f.write(message + "\n")
     f.close()
     print("Message inscribed!")
 
