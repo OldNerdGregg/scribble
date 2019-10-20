@@ -18,12 +18,22 @@ def menu():
         keep_running = False # Quits program
     elif choice == "V":
         get_version()
+    elif choice == "W":
+        write_to_scroll()
 
 def get_version():
-    print(15 * '#')
+    print(25 * '#')
     print("Script Version: " + script_version) 
-    print(15 * '#')
+    print(25 * '#')
     print("")
+
+def write_to_scroll():
+    message = input("Type inscription here: ")
+    f = open(current_scroll, "a")
+    f.write(message)
+    f.close()
+    print("Message inscribed!")
+
 
 # Start the program
 main()

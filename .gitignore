@@ -1,2 +1,5 @@
 # Swap
 *.swp
+
+# Ignore testing scroll
+PAPYRUS.txt
