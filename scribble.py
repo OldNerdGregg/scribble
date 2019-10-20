@@ -1,6 +1,7 @@
-script_version = '0.0.1a'
+script_version = '0.0.1b'
 keep_running = True
 current_scroll = "PAPYRUS.txt"
+default_scroll = "PAPYRUS.txt"
 
 def main():
     while keep_running == True:
@@ -73,6 +74,7 @@ def get_help():
 
 
 # Start the program
+print("Default scroll: " + default_scroll)
 print("For commands type 'H'")
 main()
 
