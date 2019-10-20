@@ -32,6 +32,9 @@ def menu():
         change_scroll()
     elif choice == "H":
         get_help()
+    elif choice == "P":
+        print_scroll()
+
 
 
 
@@ -40,7 +43,7 @@ def get_version():
     print("Script Version: " + script_version) 
     print(25 * '#')
     print("")
-
+### SCROLL FUNCTIONS ### 
 def write_to_scroll():
     message = input("Type inscription here: ")
     f = open(current_scroll, "a")
@@ -58,6 +61,12 @@ def change_scroll():
     global current_scroll
     current_scroll = input("Enter file name: ")
 
+def print_scroll():
+    f = open(current_scroll,"r")
+    print(f.read())
+    f.close()
+
+### END SCROLL FUNCTIONS ###
 
 def get_help():
     print("Available Commands:")
@@ -67,7 +76,8 @@ def get_help():
                 "W":"Writes to the currently selected scroll.",
                 "E":"Erases the current scroll. Must confirm 'Y' to proceed.",
                 "C":"Changes the current scroll.",
-                "H":"Prints this help menu."
+                "H":"Prints this help menu.",
+                "P":"Prints the contents of the current scroll."
                }
     for letter, description in commands.items():
         print("'" + letter + "'" + " = " + description)
